@@ -1,0 +1,67 @@
+Which of the following statements BEST describes an operating system.
+
+Answer: A set of abstractions meant to reduce programmer concerns for the physical limitations of a computer.
+
+Choose the C statement that is equivalent to the following:
+
+array[i][j] = 1;
+
+Answer: *(*(array + i) + j) = 1;
+
+The heap contains state data for each function call, including return addresses and parameters.
+
+Answer: False
+
+Assume the following code has been executed.
+
+int * p = (int*) malloc(sizeof(int));
+
+Match the following left-hand statements to their correct meanings.
+
+Answers:
+&p	The address of the pointer.
+
+*p	The value at the address p points to.
+
+p	The address p points to.
+
+A process that has been blocked will be removed from the ready queue.
+
+Answer: True
+
+What is the size (in bytes) of the following data structure assuming a 64-bit architecture?
+
+struct bankAccount {
+
+     char* name;
+
+     double balance;
+
+     int* expenses;
+
+}
+
+Answer: 24
+
+Which of the following is the BEST definition of context switching?
+
+Answer:   When the operating system changes what execution unit is being processed.
+
+Which of the following events will cause a context switch? (Select all that apply)
+
+Answer:
+A blocking file I/O request. 
+The quantum allocated to an execution unit has expired.
+Waiting for a network response. 
+
+The function malloc(int) has two possible results. What are they?
+
+Answers: 
+
+The address of the newly allocated chunk of memory.
+
+0 or NULL, if there was an error.
+
+To determine what caused an error, one should make which function call?
+
+Answer: perror();

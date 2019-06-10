@@ -1,0 +1,85 @@
+File descriptors are of what primitive type?
+
+Answer: int
+
+(T/F) File descriptors are local to each process.
+
+Answer: True
+
+File descriptors are used for what data channels? (Select all that apply)
+
+Answers: Files, Sockets, Pipes
+
+The function pipe() consumes what argument(s)?
+
+Answer: An array of integers
+
+Assume the following code has been executed.
+
+byte buffer[100];
+
+int p[2];
+
+pipe(p);
+
+Which of the following will read from the pipe?
+
+Answer: read(p[0], buffer, 100);
+
+Assume the following code has been executed.
+
+int p[10];
+
+for (int i=0; i < 5; ++i) {
+
+     pipe(p + (2 * i));
+
+}
+
+Which of the following statements are true?
+
+Answer: p[7] is the write channel associated with p[6].
+
+Which of the following BEST describes the system call dup2()?
+
+Answer: Reroutes all the input from one channel to another.
+
+The first argument dup2 consumes is the file descriptor of the channel being duplicated and the second argument is a new file descriptor which can be used as an alias to the first one.
+
+Answer: True
+
+The effects of dup2 persist for a process even if an exec call is made.
+
+Answer: True
+
+The following code is meant to capture the output of an executable in a file and then read in and print out the first 100 bytes of that file. Select all of the bugs in the code. Assume that all system calls succeed and that sizeof(char) = 1.
+
+pid_t pid = fork();
+
+if (pid == 0) {
+
+     int in = open("file.txt", READ_ONLY);
+
+     dup2(STDOUT_FILENO, in);
+
+     execl("./something", "something", "hello!");
+
+} else {
+
+     char buffer[100];
+
+     int in = open("file.txt", READ_ONLY);
+
+     read(buffer, in, 100);
+
+}
+
+Answers:
+
+The arguments to dup2() need to be switched.
+
+The child opens the file as read-only when it should have write permissions.
+
+The parent does not wait for the child to finish.
+
+The order of the arguments to read() is incorrect.

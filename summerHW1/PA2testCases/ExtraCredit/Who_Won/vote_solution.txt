@@ -1,0 +1,3 @@
+A:61,B:24,C:24
+WINNER:A
+There is a cycle from Sub_County_1 to Region_1.

@@ -1,0 +1,87 @@
+What is the name of the structure used to represent a file by the Linux OS?
+
+Answer: inode
+
+Select the BEST description of the stat(char*, struct stat*) system call.
+
+Answer: Produces a struct containing metadata of the file specified in the first argument.
+
+To open a directory for reading, what function call would you make?
+
+Answer: opendir(char*);
+
+A pointer to what is returned by the system call readdir(DIR*)?
+
+Answer: A dirent struct containing info on the next file in the directory.
+
+Select all of the statements which describe the significance of a process's current working directory.
+
+Answer: 
+Size in bytes		stat
+User ID of owner	stat
+Inode number		stat and dirent
+File mode		stat
+File name		dirent
+Block size		stat
+Number of soft links	none
+Number of hard links	stat
+Logical block address	none
+Direcotry location	none
+Last access time	stat
+Time of creation	none
+
+Assume the following code has been executed by an application which was started in the root directory.
+You may assume that all system calls succeed EXCEPT where an error is explicitly checked for.
+When will this program terminate?
+
+int count = 0;
+
+DIR* dir = opendir(".");
+
+struct dirent* entry;
+
+while (1) {
+
+     do {
+
+          entry = readdir(dir);
+
+     } while (entry != NULL && entry->d_type != DT_DIR);
+
+  
+
+     if (entry == NULL) {
+
+          char name[PATH_MAX];
+
+          getcwd(name, PATH_MAX);
+
+          printf("The depth of directory %s is %d.\n", name, count);
+
+          exit(0);
+
+     }
+
+ 
+
+     // Ignore . and .. as these are not member files or sub-directories.
+
+     if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, "..")) continue;
+
+ 
+
+     pid_t pid = fork();
+
+     if (pid == 0) {
+
+          chdir(entry->d_name);
+
+          dir = opendir(".");
+
+          ++count;
+
+     }
+
+}
+
+Answer: When the depths of all the directories have been printed.

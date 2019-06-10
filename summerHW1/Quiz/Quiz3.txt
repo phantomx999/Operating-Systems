@@ -1,0 +1,81 @@
+Select the BEST description for what the 'fork' system call does in Linux.
+
+Answer: Creates a new process with a memory space that duplicates the calling process.
+
+In Linux, a child process will have the same pid as its parent.
+
+Answer: False
+
+Calling 'kill pid' on a parent process in bash (cmd prompt) will also kill all of its children.
+
+Answer: False
+
+A parent process by default will not stop executing until all of its children have finished.
+
+Answer: False
+
+In the following C code, if we replace the ? with ==, >, and <, what code should go inside the braces of the 'if' statement?
+
+pid_t pid = fork();
+
+if (pid ? 0) {
+
+     ... run some code ... 
+
+}
+
+Answers:
+==	The code meant for the child process.
+>	The code meant for the parent process.
+<	The code meant for a fork failure in the calling process.
+
+Match the appropriate version of the 'wait' system call to the BEST description of its functionality.
+
+Answers:
+
+wait(NULL)			Suspends execution of the process until a state change occurs in any child process.
+wait(int*)			Same as wait(NULL), but will store the state change code at int*.
+waitpid(pid_t, int*, int)	Waits for child process with pid = pid_t. Stores status observed at int*. Extra int for special flags.
+
+Which of the following BEST describes the functionality of the 'exec' system call?
+
+Answer:
+
+Replaces the current executing program state with one that represents a newly initialized program state of the specified executable.
+
+When does the next line after an 'exec' call get executed?
+
+Answer:
+
+When 'exec' fails to replace the current program.
+
+The exec system call in Linux has many variations (execl, execlp, execlpe, execv, execvp, execvpe). The letters l, v, p, and e at the end of these function names describe different parameters and functionalities.
+
+Answer:
+execvp	Consumes a char* array of variable size. Uses the operating system's default 'path' to locate executable.
+execl	Consumes a list of arguments of constant size. Requires a full or relative path to executable.
+
+Select the correct output of the following program, assuming that no system call fails.
+
+We will assume the parent process id = 1 and child process id = 2.
+
+pid_t pid = fork();
+
+if (pid == 0) {
+
+     execl("...some path...", (char*) NULL);
+
+     printf("pid = %d ", pid);
+
+} else {
+
+     printf("pid = %d ", pid);
+
+     wait();
+
+     printf("finished!");
+
+}
+
+Answer:
+pid = 2 finished!

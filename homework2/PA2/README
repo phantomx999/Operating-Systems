@@ -1,0 +1,40 @@
+README:
+
+stein936, yang4055
+03/09/2018
+Andrew Steinbrueck, Xin Yang
+3949010, 5064064
+
+Lecture Section 1 for both students
+
+PURPOSE:
+The purpose of our assignment was to create 3 programs (Leaf_Counter.c, Aggregate_Votes.c, and Vote_Counter.c) 
+that performed certain tasks on a tree data structure containing directories and some txt files.  
+These programs ultimately determine which candidate of an election won the election based on 
+total number of votes.
+
+-The root node of the tree was the ultimate, source directory of the entire assignment, and is
+titled Who_Won from the test cases.  
+-The leaf nodes of the tree are the votes.txt files for each particular leaf node
+-The remaining non leaf nodes are the subdirectories of the test case directory Who_Won, and 
+contain branches of the tree with possibly other subdirectory child nodes or leaf, txt file nodes.       
+
+-The leaf nodes contained a txt file with all the votes for each candidate for
+a specific county or region.  Leaf_Counter.c parsed through these txt files and counted the total
+number of votes for each particular candidate.
+Aggregate_Votes.c was used on parent nodes and summed up all the child nodes votes for each candidate 
+to get an aggregate sum of votes for all child nodes of this parent node.
+Vote_Counter.c was used on the root node and ultimately determined which candidate won the election
+based on total number of votes.  
+
+CONTRIBUTIONS:
+
+Andrew Steinbrueck:
+-wrote part of Leaf_Counter.c and Aggregate_Votes.c, did some error handling, 
+wrote documentation/comments, made makefile, wrote README, ordered pizza and provided mountain dew for partner.  
+
+Xin Yang:
+-wrote part of Leaf_Counter.c and Aggregate_Votes.c, wrote all of Vote_Counter.c, did some error handling.   
+
+
+No extra credit attempted.  You can still give us extra credit if you think we are cool and funny.  

@@ -1,0 +1,29 @@
+Login: stein936, yang4055
+Date: 02/21/2018
+Name: Andrew Steinbrueck, Xin Yang
+Student ID: 3949010, 5064064  
+
+Purpose:
+	Create a program which assesses which candidate won an election based on number of votes.  Leaf nodes count number of votes, parent nodes aggregate votes, and root node calculates candidate winner based on all aggregated total votes. 
+
+
+Uses Makefile "make" to compile code.  Makefile consists of "gcc -o votecounter votecounter.c open_read.o" command to compile
+To run program, use also ./votecounter "input.txt" to run program.  Program must be run in TestCaseXX directories.
+
+cd TestCaseXX
+make	-->	gcc -o votecounter votecounter.c open_read.o
+./votecounter "input.txt"
+		
+
+Please note that it is assumed all file names in test case files are named "input.txt"  All test case directories must contina votcounter.c and open_read.o files 
+All programming assignment 1 code students' code, and documentation/comments of code, are in votecounter.c
+
+
+Program Task:
+	The program creates a tree full of sub regions and sub counties and then executes child processes of each leaf node's number of votes, using leafcounter.  After leaf children execution has been completed, parent nodes use aggregate_ votes to tally number of votes for each sub node (child node).  Parent nodes continue to execute and aggregate votes, until all execution has been completed and then ultimate parent node (root node) uses find_winner to declare candidate winner based on total number of votes.  Program inputs a txt file with pertinent data, parses each line and string of data, and then runs execute to find the vote number per candidate for each node.  It then outputs voting data in txt files for each regiion and county, as well as who won the the overall election in the root node. 
+
+X500: stein936, yang4055
+
+Contributions:  
+-stein936 wrote parseInput and parseInputLine, wrote comments/documentation, created makefile, and created readme.txt 
+-yang4055 perfected parseInput, parseInputLine, wrote execNodes, and did error handling.  

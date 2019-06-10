@@ -1,0 +1,2 @@
+Ash:42,Ciara:21,Joanna:7,Ginny:28,Fiona:35,Heidi:14
+WINNER:Ash

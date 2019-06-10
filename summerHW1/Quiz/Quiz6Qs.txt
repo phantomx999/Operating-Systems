@@ -1,0 +1,109 @@
+Select the BEST description of a link (hard or soft).
+
+Possible Answers:
+A reference in the file system to a file that exists elsewhere.
+The program that links binary files after compilation.
+A pointer containing the address of a file.
+
+Match each name to its BEST definition.
+
+Hard Link
+Soft Link
+
+Possible Answers:
+Reference to a file by inode.
+Reference to a file by name.
+Reference to a file that disappears after a restart.
+Reference to a file's exact address on disk.
+
+Match each definition to the bash command it BEST describes. You can assume the correct arguments are always given and are therefore irrelevant.
+
+Creates a hard link to a file.
+Creates a soft link to a file.
+
+Possible Answers:
+link -h
+link -s
+ln
+ln -h
+slink
+ln -s
+hlink
+
+Assume the following sequence of events has occurred, all on one file:
+
+The file originally has 4 hard links and 3 soft links.
+3 hard links are deleted.
+2 soft links are deleted.
+One of the hard links is renamed.
+Which of the following statements are true? (Select all that apply)
+
+Possible Answers:
+The number of hard links in the file's inode is 1. 
+The number of soft links in the file's inode is 1. 
+The original file has been deleted. 
+The inode representing the original file is deleted. 
+The original inode still exists. 
+The original inode exists, but the id has changed.
+
+When does a file get deleted?
+
+Possible Answers:
+When all of the hard links that point to it are deleted.
+When all of the soft links that point to it have been deleted.
+When all of the links (both soft and hard) have been deleted.
+
+What does the function below do? Select the BEST description.
+ 
+
+void foo(char* bar) {
+
+ 
+     struct stat* stats;
+
+     lstat(bar, stats);
+
+     if (S_ISLNK(stats->st_mode)) {
+
+          char s[PATH_MAX];
+
+          int size = readlink(bar, s, PATH_MAX);
+
+          s[size] = '\0';
+
+          unlink(bar);
+
+          link(s, bar);
+
+     }
+
+}
+
+Possible Answers:
+Deletes a file, leaving behind a dangling soft link. 
+Replaces a soft link with a hard link of the same name. 
+Creates a copy of the filename given as bar. 
+Creates a hard link with the same name as the original file.
+
+What does the function below print and WHY?
+
+void foo(char* bar) {
+
+ 
+
+     symlink(bar, "soft");
+
+     link("soft", "hard");
+
+     struct stat* stats;
+
+     lstat("hard", stats);
+
+     printf("%s\n", S_ISLNK(stats->st_mode) ? "Link!" : "File!");
+
+}
+
+Possible Answers:
+"File!", because "hard" points to the original file. 
+"Link!", because "hard" points to a soft link, "soft". 
+"Link!", because "hard" is a hard link.

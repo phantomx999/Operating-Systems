@@ -1,0 +1,30 @@
+CC=gcc
+CFLags=-std=c99
+DBFLAGS=-g
+
+make Leaf_Counter:  Leaf_Counter.c 
+	$(CC) $(CFLAGS) -o Leaf_Counter Leaf_Counter.c
+
+make Aggregate_Votes: Aggregate_Votes.c
+	$(CC) $(CFLAGS) -o Aggregate_Votes Aggregate_Votes.c
+
+make Vote_Counter: Vote_Counter.c
+	$(CC) $(CFLAGS) -o Vote_Counter Vote_Counter.c
+
+make: Leaf_Counter.c Aggregate_Votes.c Vote_Counter.c
+	$(CC) $(CFLAGS) -o Leaf_Counter Leaf_Counter.c
+	$(CC) $(CFLAGS) -o Aggregate_Votes Aggregate_Votes.c
+	$(CC) $(CFLAGS) -o Vote_Counter Vote_Counter.c
+
+
+debug Leaf_Counter:  Leaf_Counter.c 
+	$(CC) $(CFLAGS) ($DBFLAGS) -o Leaf_Counter Leaf_Counter.c
+
+debug Aggregate_Votes: Aggregate_Votes.c
+	$(CC) $(CFLAGS) ($DBFLAGS) -o Aggregate_Votes Aggregate_Votes.c
+
+debug Vote_Counter: Vote_Counter.c
+	$(CC) $(CFLAGS) ($DBFLAGS) -o Vote_Counter Vote_Counter.c
+	
+clean:
+	rm Leaf_Counter Aggregate_Votes Vote_Counter 
